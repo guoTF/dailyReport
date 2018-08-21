@@ -1,0 +1,378 @@
+body {
+    color: #000000;
+    background: #23282f ;
+    font-family: "微软雅黑";
+}
+.childBody{
+    background: #f7f7f7;
+}
+
+#main-content {
+    box-shadow: 0 0 10px #757575;
+    -moz-box-shadow: 0 0 10px #757575;
+    -webkit-box-shadow:0 0 10px #757575 ;
+}
+ul,li{
+    list-style: none;
+}
+a, a:hover {
+    text-shadow: none !important;
+    color: #408DEA;
+    cursor:pointer;
+}
+ul.faq-list li a:hover, ul.faq-list li a.active{
+    background: #22C0CB;
+}
+label{
+    font-weight:400;
+}
+form{
+    margin:0;
+}
+.form-group{
+    margin-right:15px;
+}
+.form-group label{
+    position: relative;
+    top:2px;
+}
+
+.form-group input,.form-group select,.modal input,.modal select{
+    height:28px;
+    padding:0 6px;
+    border-radius:0
+}
+
+input[type="file"]{
+    line-height:0px
+}
+
+.btn{
+    padding:3px 15px;
+    border-radius:0;
+    margin-right:5px;
+}
+
+.btn-success,.btn-success:hover{
+    background:#02C27C;
+    border-color:#02C27C;
+}
+
+
+.btn.btn-warning{
+    background-color:#FF9000;
+}
+.btn-add{
+    margin:7px;
+    height:26px;
+}
+@media (min-width:768px){
+    .form-inline .form-group{
+        margin-bottom:15px;
+    }
+    /*搜索栏*/
+    .form-inline .form-control{
+        width:110px;
+    }
+    /*模态框*/
+    .modal .form-control{
+        width:150px;
+    }
+    /*textarea*/
+    .modal .form-control.ui-textArea{
+        width:435px;
+        border-radius:0;
+    }
+
+    .form-inline .form-control.ui-width200{
+        width:200px;
+    }
+}
+
+.table th{
+    font-weight:normal;
+}
+.bootstrap-table .table>thead>tr>th{
+    border-bottom:2px solid #ddd;
+    color:#797A7A
+}
+
+.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed)>tbody>tr>td, .bootstrap-table .table:not(.table-condensed)>tbody>tr>th, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>td, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>th, .bootstrap-table .table:not(.table-condensed)>thead>tr>td{
+    padding:6px;
+}
+
+.fixed-table-toolbar .btn-group>.btn-group{
+    position:relative;
+    top:-4px;
+}
+.fixed-table-container{
+    border:none;
+    /*top:-30px;*/
+}
+.fixed-table-container thead th,.fixed-table-container tbody td{
+    border-left:none;
+}
+
+.fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner{
+    padding:4px 6px;
+    background-color:#f9f9f9;
+}
+.table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th{
+    background-color:#fff;
+}
+.table-striped tbody>tr:nth-child(even)>td, .table-striped tbody>tr:nth-child(even)>th{
+    background-color:#f9f9f9;
+}
+#header.navbar-inverse .navbar-inner {
+    background: -webkit-linear-gradient(left, #02c27c 1%, #02c27c 49%, #03a3de 100%); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,   #02c27c 1%, #02c27c 49%, #03a3de 100%); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,   #02c27c 1%, #02c27c 49%, #03a3de 100%); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,  #02c27c 1%, #02c27c 49%, #03a3de 100%); /* 标准的语法（必须放在最后） */
+}
+
+#header .navbar-inner .nav .dropdown-toggle:hover, .navbar-inner .nav .dropdown.open .dropdown-toggle {
+    background-color: #333 !important;
+}
+
+#header.navbar-inverse .divider-vertical {
+    border-left-color: #2c2d2f;
+    border-right-color: #181a1b;
+}
+
+#sidebar > ul > li > a {
+    color: #7F88A8 !important;
+}
+
+#sidebar > ul > li a i {
+    color: #7F88A8 !important;
+}
+
+#sidebar > ul > li >a:hover, #sidebar > ul > li:hover>a {
+    color: #fff !important;
+}
+
+#sidebar > ul > li.active > a{
+    background:#22283D;
+}
+
+#sidebar > ul > li > ul.sub > li > a {
+    color: #7F88A8;
+    font-size:12px;
+    font-weight:300;
+    background:#0A1028
+}
+
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+    background-color: #EEEEEE;
+    background-image: none;
+    color: #333333;
+    filter: none;
+    text-decoration: none;
+}
+
+#sidebar > ul > li > ul.sub > li {
+    border-bottom: none;
+}
+
+#sidebar > ul > li > ul.sub > li:last-child {
+    border-bottom:none;
+}
+
+.chats li.out .name {
+    color: #b14c4c;
+}
+
+.chats li.in .message {
+    border-left: 2px solid #2f8e95;
+}
+
+.chats li.in .message .arrow {
+    border-right: 8px solid #2f8e95;
+}
+
+.chats li.out .message .arrow {
+    border-left: 8px solid #b14c4c;
+}
+
+.chats li.out .message {
+    border-right: 2px solid #b14c4c;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width:979px) {
+    #sidebar {
+        background-color: #29a3ac !important;
+        -webkit-border-radius: 4px !important;
+        -moz-border-radius: 4px !important;
+        border-radius: 4px !important;
+    }
+
+    #sidebar > ul > li > a {
+        border-bottom: 1px solid #30c1cb !important;
+    }
+
+    #sidebar > ul > li.active > a, #sidebar > ul > li:hover > a, #sidebar > ul > li > a:hover {
+        border-bottom: 1px solid #30c1cb !important;
+    }
+}
+
+/*----*/
+
+/*lock*/
+
+.lock-avatar-row, .lock-form-row .tarquoise  {
+    background: #30c1cb;
+}
+
+.lock-avatar-row img {
+    border:10px solid #5aced6;
+}
+
+.lock-identity span {
+    color:#30c1cb;;
+}
+
+.lock-form-row .tarquoise {
+    border:1px solid #30c1cb !important;
+}
+
+/*coming soon*/
+
+.coming-soon .input-append .submit-btn {
+    background: #2fbfca;
+    color: #195e63;
+}
+
+.twt-color , .twt-color:hover, .blog .date .day{
+    color: #2fbfca !important;
+}
+
+ul.social-link li a:hover, .blog .date .month {
+    background: #2fbfca;
+}
+
+
+/*blog*/
+
+.blog .date {
+    border: 1px solid #2fc0ca;
+}
+
+.blog ul li a:hover, .blog-side-bar ul li a:hover { color: #2fc0ca; text-decoration: none;}
+
+.blog .btn:hover {
+    background: #2fc0ca;
+}
+
+.blog-side-bar ul.tag li a {
+    background: #2fc0ca;
+}
+
+/*invoice-list*/
+
+
+.invoice-list h5 {
+    color: #2fc0ca;
+}
+
+/*about us*/
+
+.about-us h4, .team-member h3, .team-member ul li a:hover, .contact-us h4 {
+    color: #2badb6;
+}
+
+/*搜索栏*/
+.ui-search{
+    width:100%;
+    padding:25px 30px 10px;;
+}
+
+/*模态框*/
+.modal{
+    width:100%;
+    background:0;
+    margin:0;
+    border:0;
+    border-radius:0;
+
+}
+.modal-header{
+    padding:11px;
+}
+.modal-body{
+    max-height:600px;
+}
+.modal-content{
+    border-radius:0px;
+}
+.ui-modalLable{
+    width:60px;
+    text-align:right;
+}
+
+.modal .row-fluid{
+    margin-bottom:15px;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in{
+    opacity:.3;
+}
+
+/*分页*/
+.btn .caret{
+    margin-top:0px;
+}
+.fixed-table-pagination .page-list{
+    margin-top:5px;
+    margin-right:10px;
+}
+.pagination ul>li>a, .pagination ul>li>span{
+    margin-right:5px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color:#02C27C;
+    border-color:#02C27C;
+    color:#fff;
+}
+.pagination ul>.active>a, .pagination ul>.active>span{
+    color:#fff;
+}
+.pagination ul>li>a:hover, .pagination ul>li>a:focus, .pagination ul>.active>a, .pagination ul>.active>span{
+    background:#02C27C
+}
+.pagination ul>li>a, .pagination ul>li>span{
+    border-left-width:1px
+}
+.pagination>li>a, .pagination>li>span{
+    color:#000
+}
+.fixed-table-pagination .pagination-detail, .fixed-table-pagination div.pagination{
+    margin:5px 10px 5px 10px;
+}
+.fixed-table-toolbar .btn-group>.btn-group:last-child>.btn{
+    border-radius:0
+}
+.fixed-table-toolbar .btn-group>.btn-group:first-child>.btn{
+    border-radius:0
+}
+.btn-group>.btn:first-child{
+    border-radius:0
+}
+.btn-group>.btn:last-child, .btn-group>.dropdown-toggle{
+    border-radius:0
+}
+.pagination ul>li:first-child>a, .pagination ul>li:first-child>span{
+    border-radius:0
+}
+.pagination ul>li:last-child>a, .pagination ul>li:last-child>span{
+    border-radius:0
+}
+.panel-body{
+    padding:0;
+}
+.tabs-panels{
+    overflow:inherit;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+    border-radius:0;
+}

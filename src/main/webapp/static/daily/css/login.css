@@ -1,0 +1,41 @@
+div,p,h1,h2,h3,h4,html,body,img,span,ul,li,form {
+  margin: 0;
+  padding: 0;
+}
+body{
+	 background:url(../../img/login.png) no-repeat;
+}
+ul,li{
+  list-style: none;
+  list-style-type: none;
+}
+.container{
+	margin-top:95px;
+}
+.container .login-validate{
+	display: flex;
+}
+.container .register{
+	    padding-top: 7px
+}
+label{
+	width:100px;
+	line-height:30px;
+}
+/* label.codeValidate{
+	width:142px;
+} */
+ label.areaValidate{
+ 	width:228px;
+ }
+label.posValidate{
+	width:120px;
+	text-align: right;
+}
+.container .login-panel{
+	margin-top:0px;
+}
+.login-title{
+	padding:6px 0px;
+	text-align:center;
+}

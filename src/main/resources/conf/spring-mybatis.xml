@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 加载数据库配置文件 -->
+	<context:property-placeholder location="classpath:conf/sysConf.properties" ignore-unresolvable="true"/>
+
+	<bean id="dataSourceProxy"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<property name="targetDataSource" ref="dataSource" />
+	</bean>
+
+	<!--事务管理器配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceProxy" />
+	</bean>
+
+	<!-- 声明DataSource -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		  init-method="init" destroy-method="close">
+		<!-- 基本属性 url、user、password -->
+		<property name="driverClassName" value="${connection.driverclassname}" />
+		<property name="url" value="${connection.url}" />
+		<property name="username" value="${connection.username}" />
+		<property name="password" value="${connection.password}" />
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="3" />
+		<property name="minIdle" value="3" />
+		<property name="maxActive" value="20" />
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="60000" />
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="validationQuery" value="SELECT 'x'" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<!-- 打开removeAbandoned功能 -->
+		<property name="removeAbandoned" value="true"/>
+		<!-- 1800秒，也就是30分钟 -->
+		<property name="removeAbandonedTimeout" value="1800"/>
+		<!-- 配置监控统计拦截的filters -->
+		<property name="filters" value="stat,log4j,config"/>
+		<property name="connectionProperties"
+				  value="config.decrypt=true;druid.log.conn=false;druid.log.stmt=false;druid.log.rs=false;druid.log.stmt.executableSql=true;"/>
+	</bean>
+
+	<!-- 声明SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:conf/mybatis.xml"></property>
+		<property name="mapperLocations" value="classpath:com/seda/dailyReport/dao/*.xml" />
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+                    <value>
+                        helperDialect=sqlserver2012
+                        reasonable=true
+                        supportMethodsArguments=true
+                        params=count=countSql
+                        autoRuntimeDialect=true
+                    </value>
+                </property>
+				</bean>
+			</array>
+		</property>
+	</bean>
+
+	<!-- 扫描数据层接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.seda.*.dao" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="call*" propagation="REQUIRED" />
+			<tx:method name="change*" propagation="REQUIRED" />
+			<tx:method name="end*" propagation="REQUIRED" />
+			<tx:method name="cancel*" propagation="REQUIRED" />
+			<!-- <tx:method name="*" read-only="true" />  -->
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config expose-proxy="true" proxy-target-class="true">
+		<!-- 只对业务逻辑层实施事务 -->
+		<aop:pointcut id="txPointcut"
+			expression="execution(* com.seda.*.service.*.impl..*+.*(..))" />
+		<aop:advisor id="txAdvisor" advice-ref="txAdvice"
+			pointcut-ref="txPointcut" />
+	</aop:config>
+</beans>

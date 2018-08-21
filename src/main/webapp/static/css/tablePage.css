@@ -1,0 +1,21 @@
+.pull-left{
+    display: none;
+}
+.pagination-info,.fixed-table-pagination .page-list ,.pagination ul>li{
+    display: none;
+}
+.pagination ul>li.page-pre,.pagination ul>li.page-next{
+    display: inline-block;
+    margin-left:10px;
+}
+.fixed-table-pagination .pagination a{
+    padding:4px 12px;
+}
+
+.fixed-table-pagination .pagination-detail, .fixed-table-pagination div.pagination{
+    margin:5px 10px 0px 10px;
+}
+
+.ui-adminTable{
+    padding:0px;
+}

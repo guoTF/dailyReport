@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/conf/sysConf.properties=UTF-8
+encoding//src/main/webapp/WEB-INF/views/dailyMange/getPlan.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/dailyMange/getReportList.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/dailyMange/queryPlanALLList.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/dailyMange/queryPlanList.jsp=UTF-8
+encoding//src/main/webapp/index.jsp=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8

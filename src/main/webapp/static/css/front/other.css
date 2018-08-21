@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0; border:0; font-size:14px; font-family: Arial,"微软雅黑",Microsoft YaHei; vertical-align: baseline;}
+.top{ background:#f5f5f5; width:100%; box-shadow:1px 1px #aaa; height:40px;}
+.top ul{ width:1150px; margin:0 auto;}
+.top li{ float:right; list-style-type:none; line-height:40px;}
+.top li a{ width:80px;display:block; padding-left:35px; color:#11112d; text-decoration:none;}
+.top li a:hover{ color:#F90; font-weight:bold;}
+#a_khsq{ background:url(../../img/front/help/linkmore_icon.png) 7px -4px no-repeat;}
+#a_appdownload{ background:url(../../img/front/help/linkmore_icon.png) 7px -94px no-repeat;}
+#a_ptdl{ background:url(../../img/front/help/linkmore_icon.png) 7px -51px no-repeat;}
+#a_helpcenter{ background:url(../../img/front/help/linkmore_icon.png) 7px -136px no-repeat;}
+.header{ width:1150px; margin:0 auto; padding:15px 0;}
+#img_logo{ float:left;}
+#img_phone{ float:right; margin-top:15px;}
+.banner{ background:url(../../img/front/help/helpbanner.jpg) center;height:180px;clear:both; margin-top:0px;}
+.tabGroup{ width:750px;margin:0 auto;padding-left:400px; padding-top:30px;}
+.tabGroup li{ width:110px; float:left; margin-right:20px; list-style-type:none;}
+.tabGroup li a{ display:block; height:36px; text-decoration:none; font-size:21px; padding-top:90px;}
+.tabGroup li a:hover{ }
+.tab1 a{ background:url(../../img/front/help/images/tab_01.png) no-repeat;color:#FFF;}
+.tab1 a:hover{ background:url(../../img/front/help/images/tabon_01.png) no-repeat;color:#fcff00;}
+.tabon1 a{background:url(../../img/front/help/images/tabon_01.png) no-repeat; color:#fcff00;}
+.tab2 a{ background:url(../../img/front/help/images/tab_02.png) no-repeat;color:#FFF;}
+.tab2 a:hover{ background:url(../../img/front/help/images/tabon_02.png) no-repeat;color:#fcff00;}
+.tabon2 a{background:url(../../img/front/help/images/tabon_02.png) no-repeat;color:#fcff00;}
+.tab3 a{ background:url(../../img/front/help/images/tab_03.png) no-repeat;color:#FFF;}
+.tab3 a:hover{ background:url(../../img/front/help/images/tabon_03.png) no-repeat;color:#fcff00;}
+.tabon3 a{ background:url(../../img/front/help/images/tabon_03.png) no-repeat;color:#fcff00;}
+.tab4 a{ background:url(../../img/front/help/images/tab_04.png) no-repeat;color:#FFF;}
+.tab4 a:hover{ background:url(../../img/front/help/images/tabon_04.png) no-repeat;color:#fcff00;}
+.tabon4 a{background:url(../../img/front/help/images/tabon_04.png) no-repeat;color:#fcff00;}
+.tab5 a{ background:url(../../img/front/help/images/tab_05.png) no-repeat;color:#FFF;}
+.tab5 a:hover{ background:url(../../img/front/help/images/tabon_05.png) no-repeat;color:#fcff00;}
+.tabon5 a{ background:url(../../img/front/help/images/tabon_05.png) no-repeat;color:#fcff00;}
+.main{ width:1150px; margin:0 auto;}
+.main p{ text-align:left; line-height:38px;}
+.wtcontent{ padding-left:45px;}
+.content{ line-height:28px;  clear:both; padding-top:35px;}
+.number{ color:#863a92; font-weight:bold; font-size:52px; width:60px; float:left; margin-top:55px;}
+#text_right{border:1px dashed #863a92; border-radius:18px;padding:15px; width:1050px; float:right; }
+#text_right p{ color:#000;}
+#text_right h3{ font-size:15px; font-weight:bold;}
+.tabContent02{ display:none;}
+.tabContent03{ display:none;}
+.tabContent04{ display:none;}
+.tabContent05{ display:none;}

@@ -1,0 +1,97 @@
+.layerForm{
+    min-width: 800px;
+    padding: 26px 14px 0;
+    background: #f8f8f8;
+    text-align: left;
+    margin: auto;
+}
+.layerDetails .inputName{
+    color: #888;
+}
+.formContent{
+    background: #f8f8f8;
+}
+.formContent{
+    background: #f8f8f8;
+}
+.formContent.images .inputHorizon{
+    height: auto;
+}
+.formContent.images .inputHorizon .inputName{
+    padding-top: 34px;
+}
+.inputHorizon > .inputContent > .imgContent{
+    background: #bfbfbf;
+    border-radius: 2px;
+    width: 100px;
+    height: 100px;
+}
+.layerForm .formTitle{
+    width: 100%;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+.middleLine{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    border-bottom: 1px solid #e2e2e2;
+}
+.titleMsg{
+    position: relative;
+    z-index: 100;
+    padding: 0 12px;
+    background: #f8f8f8;
+    font-size: 18px;
+}
+.inputHorizon {
+    height: 32px;
+    float: left;
+    line-height: 32px;
+    width: 400px;
+    margin: 6px 0;
+}
+.inputHorizon > span.inputName{
+    display: block;
+    float: left;
+    margin: 0 6px;
+    text-align: right;
+    width: 120px;
+}
+.inputHorizon span.required::after{
+    content: "*";
+    color: red;
+}
+.inputHorizon > .inputContent{
+    margin-left: 132px;
+}
+.inputHorizon .btn{
+    float: right;
+    height: 32px;
+    width: 88px;
+    margin: 0 6px;
+    line-height: 32px;
+    background: #297d9f;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*上传文件按钮*/
+
+div.clear{
+    clear:both;
+}
+
+.available{
+    background: #352fa1;
+    color: #fff;
+}
+.unavailable{
+    background: #e8e8e8;
+    color: #888;
+}

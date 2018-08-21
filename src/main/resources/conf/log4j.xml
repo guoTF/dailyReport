@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <appender class="org.apache.log4j.ConsoleAppender" name="console">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p [%t] %-17c{2} (%13F:%L)
+				%3x - %m%n"/>
+        </layout>
+    </appender>
+    <appender class="org.apache.log4j.DailyRollingFileAppender" name="file">
+        <!--<param name="File" value="d:\\adminLog"/>-->
+        <param name="File" value="/opt/clog/dailyReport/admin.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"/>
+        </layout>
+    </appender>
+
+    <appender class="org.apache.log4j.DailyRollingFileAppender" name="sqlFile">
+        <!--<param name="File" value="d:\\adminLog"/>-->
+        <param name="File" value="/opt/clog/dailyReport/sql.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"/>
+        </layout>
+    </appender>
+
+    <appender class="org.apache.log4j.DailyRollingFileAppender" name="jobFile">
+        <param name="File" value="/opt/clog/dailyReport/job.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"/>
+        </layout>
+    </appender>
+
+    <appender class="org.apache.log4j.DailyRollingFileAppender" name="messageFile">
+        <param name="File" value="/opt/clog/dailyReport/message.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"/>
+        </layout>
+    </appender>
+
+    <appender class="org.apache.log4j.DailyRollingFileAppender" name="exceptionFile">
+        <param name="File" value="/opt/clog/dailyReport/exception.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"/>
+        </layout>
+    </appender>
+
+    <appender class="org.apache.log4j.DailyRollingFileAppender" name="smsFile">
+        <param name="File" value="/opt/clog/dailyReport/sms.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="druid.sql.Statement" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="sqlFile"/>
+    </logger>
+
+
+    <logger name="io.netty" additivity="false">
+        <level value="info"/>
+        <!--<appender-ref ref="console"/>-->
+    </logger>
+    <logger name="com.seda" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="file"/>
+    </logger>
+    <logger name="com.seda.web.job" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="jobFile"/>
+    </logger>
+    <logger name="exception" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="exceptionFile"/>
+    </logger>
+
+    <logger name="message" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="messageFile"/>
+    </logger>
+
+    <logger name="sms" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="smsFile"/>
+    </logger>
+
+    <logger name="com.seda.web.extend.ExceptionHandler" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="file"/>
+    </logger>
+
+    <root>
+        <priority value="info"/>
+        <appender-ref ref="file"/>
+    </root>
+</log4j:configuration>

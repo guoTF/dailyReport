@@ -1,0 +1,806 @@
+/**
+ * create by River @2017/6/12
+ */
+@charset "UTF-8";
+/**
+ * [margin description]
+ * @type {Number}
+ */
+.textbox .textbox-prompt{
+  font-size: 14px;
+}
+div,p,h1,h2,h3,h4,html,body,img,span,ul,li,form {
+  margin: 0;
+  padding: 0;
+}
+ul,li{
+  list-style: none;
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+html {
+  font-size: 14px;
+  position: absolute;
+  top:0;
+  left: 0;
+  right:0;
+  bottom: 0;
+}
+body {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 600px;
+}
+.clear{
+  clear:both;
+}
+.content {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.header{
+  height:46px;
+  width: 100%;
+  background-color: #444;
+  color: #fff;
+  line-height: 46px;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  background-color: #ccc;
+  line-height: 30px;
+  right: 0;
+  left: 170px;
+  text-align: center;
+}
+.header .logo img{
+  float: left;
+  margin-top:10px;
+}
+.header .logo .title{
+  float: left;
+  margin-left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+.header .loginMsg {
+  position: absolute;
+  right: 0;
+  /*z-index: 200;*/
+}
+.loginRole {
+  text-align: right;
+  padding-right: 20px;
+  cursor: pointer;
+}
+.loginRole span{
+  margin-right: 6px;
+}
+.loginMenu{
+  position: absolute;
+  z-index: 10;
+  right:0;
+  display: none;
+  min-width: 120px;
+  color: #297d9f;
+  background: #fff;
+}
+.loginMenu ul{
+  border: 2px solid #e2e2e2;
+  border-top: none;
+  border-radius: 4px;
+}
+.loginMenu li{
+  height: 46px;
+  line-height: 46px;
+  padding: 0 14px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.loginMenu li.last{
+  border: none;
+}
+.loginMenu a{
+  padding: 6px;
+}
+.headerMenu {
+    height: 45px;
+    width: 100%;
+    background: #fff;
+    color: #888;
+    border-bottom: 1px solid #e2e2e2;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.headerMenu ul{
+  height: 60px;
+  height: 100%;
+}
+.headerMenu ul li i{
+  font-size: 22px;
+}
+.headerMenu ul li {
+  float: left;
+  position: relative;
+  text-align: center;
+  padding:4px 14px;
+  width: 70px;
+  height: 46px;
+  cursor: pointer;
+}
+.headerMenu ul li.active::after{
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #297d9f;
+  position: absolute;
+  top: 47px;
+  left: 42px;
+}
+.headerMenu ul li.active{
+    color: #297d9f;
+    border-bottom: 2px solid #297d9f;
+    height: 50px;
+}
+.headerMenu ul li:hover{
+    color: #297d9f;
+}
+.headerMenu .desc{
+  padding-top: 2px;
+}
+.context {
+    width: 100%;
+    position: absolute;
+    top: 117px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.context .leftMenu{
+  width: 170px;
+  height: 100%;
+  position: relative;
+  bottom:0;
+  color: #fff;
+  background:#444;
+  border-right: 1px solid #e2e2e2;
+  overflow: auto;
+}
+.leftMenu div{
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 18px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.leftMenu div.title{
+  height:46px;
+  text-align:right;
+  line-height:46px;
+  color:#c2c2c2;
+}
+.leftMenu div.link:hover{
+  background: #aaa;
+}
+.leftMenu div.link{
+  cursor: pointer;
+}
+.leftMenu div.active{
+  background: #aaa;
+  border-left: 2px solid #f00;
+}
+.leftMenu .levelOne{
+  font-weight: bolder;
+}
+.leftMenu .levelOne i{
+  position: absolute;
+  right: 18px;
+  top: 13px;
+  color:#888;
+}
+.leftMenu .levelTwo{
+  color: #888;
+}
+.leftMenu .levelTwo i{
+  padding-right: 8px;
+}
+.rightContext {
+  position: absolute;
+  top: 0;
+  left: 170px;
+  right: 0;
+  bottom: 40px;
+}
+.rightContext .nav {
+  position: relative;
+  height: 46px;
+  line-height: 46px;
+  background: #fff;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 0 20px;
+  border-left: 1px solid #e2e2e2;
+}
+.rightContext .nav .navTabs{
+  height: 36px;
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  cursor: pointer;
+}
+.rightContext .nav .navTabs li.navTab{
+  float: left;
+  line-height: 36px;
+  padding: 0 12px;
+  border: #f0f0f0 1px solid;
+  margin:0 4px;
+}
+.rightContext .nav .navTabs li.navTab.active{
+  background: #ee7310;
+  color: #fff;
+}
+div.tabs{
+	position:relative;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	padding:0;
+	margin:0;
+	border: none;
+}
+div.tabs .tab{
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	z-index:-1;
+}
+div.tabs .tab .tableView{
+	left:0;
+	right:0;
+	bottom: 20px;
+	margin-top:0;
+}
+div.tabs .tab .pageView{
+	bottom:-11px;
+}
+div.tabs .tab.active{
+	z-index:10;
+}
+#realContext {
+  padding: 14px;
+  position: absolute;
+  top: 47px;
+  bottom:0;
+  left: 0;
+  right: 0;
+}
+.searchGroup,.layerSearchGroup,.layer2SearchGroup {
+	position:relative;
+}
+.searchGroup.horizon .searchLeft{
+	min-width:625px;
+    margin-right: 250px;
+}
+.searchGroup.horizon .searchItem,.layerSearchGroup.horizon .layerSearchItem,.layer2SearchGroup.horizon .layer2SearchItem{
+  float: left;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+.searchGroup.horizon .searchItem .btn,.layerSearchGroup.horizon .layerSearchItem .btn,.layer2SearchGroup.horizon .layer2SearchItem .btn{
+	margin-right:0;
+}
+.searchGroup.horizon .resetBtn,.layerSearchGroup.horizon .layerResetBtn,.layer2SearchGroup.horizon .layer2ResetBtn{
+	background:#fff;
+	color: #888;
+}
+.searchGroup .btnSearch,.layerSearchGroup .layerBtnSearch,.layer2SearchGroup .layer2BtnSearch{
+  float: left;
+  height: 30px;
+  padding: 0 14px;
+  margin-right: 0px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 2px;
+  background: #297d9f;
+  border: 1px solid #297d9f;
+  color:#fff;
+  cursor: pointer;
+}
+.searchGroup .rightBtns,.layerSearchGroup .layerRightBtns,.layer2SearchGroup .layer2RightBtns{
+	position:absolute;
+	bottom: 12px;
+	right:0;
+}
+.searchGroup .btn,.layerSearchGroup .btn,.layer2SearchGroup .btn{
+  float: left;
+  height: 32px;
+  padding: 0 14px;
+  margin-right: 10px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 2px;
+  background: #297d9f;
+  color:#fff;
+  cursor: pointer;
+}
+.searchGroup .btnClear{
+  float: left;
+  height: 30px;
+  padding: 0 14px;
+  margin-right: 10px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  color:#888;
+  cursor: pointer;
+}
+.searchGroup .btn.last,.layerSearchGroup .btn.last,.layer2SearchGroup .btn.last{
+  margin-right: 0;
+}
+.searchGroup .btn.submit{
+  background: #18bc8f;
+}
+.searchGroup .btn i,.layerSearchGroup .btn i,.layer2SearchGroup .btn i{
+  padding-right: 4px;
+}
+
+.tableView{
+  position: absolute;
+  top:52px;
+  bottom:34px;
+  left: 14px;
+  right: 14px;
+}
+.pageView,#pageView{
+  position: absolute;
+  right: 14px;
+  bottom: 2px;
+}
+/**
+ * 覆盖easyUI默认样式
+ */
+.datagrid-htable{
+  height: 42px;
+  font-weight: bolder;
+  text-align: center;
+}
+.datagrid-header-row, .datagrid-row{
+  height: 36px;
+  color:#444;
+}
+/**
+ * 覆盖paging.css样式
+ * @type {[type]}
+ */
+.ui-paging-container{
+  font-size: 14px;
+}
+/**
+带标签input
+ */
+.inputWithLabel {
+  width: 80%;
+  margin:12px auto;
+}
+.inputWithLabel .inputName{
+  display: block;
+  float: left;
+  width: 46px;
+  text-align: left;
+  margin-right: 14px;
+  height: 32px;
+  line-height: 32px;
+}
+.inputWithLabel .inputInfo{
+  display: none;
+  margin-left: 10px;
+}
+.inputWithLabel .inputInfo.success{
+  color: #297d9f;
+}
+.inputWithLabel .inputInfo.error{
+  color: #ff9c00;
+}
+span.operator{
+	margin: 0 6px;
+	cursor: pointer;
+	color: #297d9f;
+}
+span.operator i{
+	padding-right: 2px;
+}
+.uploadFileBtn{
+  position: relative;
+}
+#fileUpload,.fileUpload{
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  filter:alpha(opacity=0);
+}
+/*修改密码 start*/
+.passwordForm{
+  padding:30px 40px;
+}
+.passwordForm .am-form-group label,.passwordForm .am-form-group input,.passwordForm .am-form-group button {
+  height: 30px; line-height: 30px; margin-bottom: 15px;padding:0;text-align: left;
+}
+.passwordForm .am-form-group label {
+  width: 60px;
+    text-align: right;
+    display: inline-block;
+}
+.passwordForm .am-form-group input {
+  width: 200px;padding-left: 5px;
+}
+.passwordForm .am-form-group button {
+  text-align: center;width: 90px;border:none;display: inline-block;
+}
+#confirm_changepsw{
+  background: #297d9f;border: 1px solid #297d9f;margin-right: 10px; color:#fff;
+}
+#cancel_changepsw{
+  background: #fff;border: 1px solid #e2e2e2;
+}
+/*修改密码 end*/
+/*easyui样式重写 start*/
+span.textbox-readonly{
+  background: #cacaca;
+}
+span.textbox-readonly .combo-arrow:hover{
+  background: #cacaca;
+}
+
+span.textbox-readonly input.textbox-text,span.textbox-readonly textarea.validatebox-readonly{
+  color: #666;
+  background: #cacaca;
+}
+.datagrid-header-row {
+	background: #e8e8e8;
+}
+.datagrid-row-selected {
+    background: #d9e9f0;
+    color: #000;
+}
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+    margin: 0;
+    padding: 0 10px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    height: 18px;
+    line-height: 18px;
+    font-size: 14px;
+}
+/*easyui样式重写 end*/
+/*参数配置 新增接口 start*/
+.addIntfForm{
+  padding:30px 40px;
+}
+.addIntfForm .am-form-group label,.addIntfForm .am-form-group input,.addIntfForm .am-form-group button ,.addIntfForm .am-form-group select{
+  height: 30px; line-height: 30px; margin-bottom: 12px;padding:0;text-align: left;
+}
+.addIntfForm .am-form-group label {
+    width: 60px;
+    text-align: right;
+    display: inline-block;
+}
+.addIntfForm .am-form-group input {
+  width: 290px;padding-left: 5px;
+}
+.addIntfForm .am-form-group select{
+  width: 300px;padding-left: 5px;
+}
+.addIntfForm .am-form-group button {
+  text-align: center;width: 92px;border:none;display: inline-block;
+}
+#confirm_addIntf{
+  background: #297d9f;border: 1px solid #297d9f;margin-right: 10px; color:#fff;
+}
+#cancel_addIntf{
+  background: #fff;border: 1px solid #e2e2e2;
+}
+/*参数配置 新增接口 end*/
+/*easyui 日期控件样式重写 start*/
+
+/*easyui 日期控件样式重写 end*/
+.unSubmit {
+	color: #ee7310;
+}
+#pageDetail{
+  position: absolute;
+  bottom: 20px;
+  right: 2.5%;
+}
+
+.layerForm{
+  min-width: 800px;
+  padding: 26px 14px 0;
+  background: #f2f2f2;
+  text-align: left;
+  margin: auto;
+}
+.layerDetails .inputName{
+  color: #888;
+}
+.formContent{
+  background: #f8f8f8;
+}
+.formContent.images .inputHorizon{
+  height: auto;
+}
+.formContent.images .inputHorizon .inputName{
+  padding-top: 34px;
+}
+.inputHorizon > .inputContent > .imgContent{
+  background: #bfbfbf;
+  border-radius: 2px;
+  width: 100px;
+  height: 100px;
+}
+.layerForm .formTitle{
+  width: 100%;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.middleLine{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  border-bottom: 1px solid #e2e2e2;
+}
+.titleMsg{
+  position: relative;
+  z-index: 100;
+  padding: 0 12px;
+  background: #f2f2f2;
+  font-size: 18px;
+}
+.inputHorizon {
+  height: 32px;
+  float: left;
+  line-height: 32px;
+  width: 400px;
+  margin: 6px 0;
+}
+.inputHorizon > span.inputName{
+  display: block;
+  float: left;
+  margin: 0 6px;
+  text-align: right;
+  width: 120px;
+}
+.inputHorizon span.required::after{
+  content: "*";
+  color: red;
+}
+.inputHorizon > .inputContent{
+  margin-left: 132px;
+}
+.inputHorizon .btn{
+  float: right;
+  height: 32px;
+  width: 88px;
+  margin: 0 6px;
+  line-height: 32px;
+  background: #297d9f;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.preview{
+  display: none;
+}
+
+.layerShow{
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  left:0;
+  top:0;
+}
+
+/**
+  弹出层搜索分页
+ */
+.layerMenus{
+  width: 100%;
+  height: 46px;
+  background: #fff;
+  position: relative;
+}
+.layerMenus ul{
+  height: 36px;
+  line-height: 36px;
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+}
+.layerMenus ul li {
+  float: left;
+  padding: 0 12px;
+  margin:0 4px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+.layerMenus ul li:hover{
+  background: #297d9f;
+  color: #fff;
+}
+.layerMenus ul li.active{
+  background: #297d9f;
+  color: #fff;
+}
+.layerSearchGroup .layerSearchLeft,.layer2SearchGroup .layer2SearchLeft{
+  min-width: 635px;
+  margin-right: 250px;
+}
+.layerTableView,.layer2TableView{
+  position: absolute;
+  top:100px;
+  bottom:34px;
+  left:0;
+  right:0;
+  margin: 0 14px;
+}
+.layerPageView,.layer2PageView{
+  position: absolute;
+  right: 14px;
+  bottom:2px;
+}
+
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-color: #d2d2d2;
+}
+
+.horizons {
+  height: 46px;
+  line-height: 46px;
+  background: #d2d2d2;
+  padding: 0 14px;
+  margin-bottom: 10px;
+}
+.horizons .horizonsItem{
+  display: inline-block;
+  width: 33%;
+}
+.watchDetail{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.layui-layer-btn{
+  background: #f2f2f2;
+}
+.rightContext .content{
+  padding: 0px 5px 0px 5px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+.content-topbar{
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+}
+.content-topbar .layui-breadcrumb{
+  margin-left: 20px;
+}
+.content-topbar .layui-breadcrumb a:hover{
+  color: inherit !important;
+}
+.content-topbar .layui-btn-group{
+  margin-left: 50px;
+}
+.content-topbar .layui-btn-group .layui-btn{
+  padding: 0 20px;
+  letter-spacing: 5px;
+}
+.content-search ul li{
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  vertical-align: middle;
+}
+.content-search ul li:last-child{
+  margin-left: 12px;
+}
+.content-search ul i{
+  position: absolute;
+  top: 6px;
+  right: 5px;
+}
+.content-search .layui-btn{
+  padding: 0 16px;
+}
+.content-search .layui-input,
+.content-search .layui-select,
+.content-search .layui-textarea{
+  height: 30px;
+}
+.content-list{
+  margin: 10px 0;
+  height: 350px;
+  overflow-y: auto;
+}
+.mainlist td,
+.mainlist th{
+  padding: 5px;
+}
+#showmore{
+  padding: 5px;
+  border: 1px solid #cacaca;
+  color: #5eb95e;
+  background-color: #edf7ed;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+.mylayerbox{
+  padding: 5px;
+  max-height: 550px;
+  overflow-y: auto;
+}
+.table-static td,
+.table-static th{
+  padding: 5px;
+}
+.table-static-even tbody tr td:nth-child(odd){
+  background-color: #eee;
+}
+.table-static tbody tr:hover{
+  background-color: inherit !important;
+}
+.table-static .layui-badge{
+  margin-left: 5px;
+}
+.layui-btn .fa{
+  margin-right: 5px;
+  position: static;
+}
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background-color: #bbb;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #999;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:active {
+	background-color: #777;
+}
+.xinghao::before{
+  content: "*";
+  margin-right: 1px;
+  color: #f00;
+}

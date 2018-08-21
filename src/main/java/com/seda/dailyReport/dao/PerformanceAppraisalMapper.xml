@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seda.dailyReport.dao.PerformanceAppraisalMapper">
+  <resultMap id="BaseResultMap" type="com.seda.dailyReport.model.PerformanceAppraisal">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userID" jdbcType="VARCHAR" property="userid" />
+    <result column="appraisal_month" jdbcType="VARCHAR" property="appraisalMonth" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="task_id" jdbcType="VARCHAR" property="taskId" />
+    <result column="concrete_function" jdbcType="VARCHAR" property="concreteFunction" />
+    <result column="man_hour" jdbcType="VARCHAR" property="manHour" />
+    <result column="performance" jdbcType="VARCHAR" property="performance" />
+    <result column="overtim" jdbcType="VARCHAR" property="overtim" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="update_date" jdbcType="VARCHAR" property="updateDate" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, userID, appraisal_month, project_name, task_id, concrete_function, man_hour, 
+    performance, overtim, create_date, create_by, update_date, update_by, status
+  </sql>
+  <select id="selectByExample" parameterType="com.seda.dailyReport.model.PerformanceAppraisalExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_performance_appraisal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_performance_appraisal
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_performance_appraisal
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.seda.dailyReport.model.PerformanceAppraisalExample">
+    delete from tb_performance_appraisal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.seda.dailyReport.model.PerformanceAppraisal">
+    insert into tb_performance_appraisal (id, userID, appraisal_month, 
+      project_name, task_id, concrete_function, 
+      man_hour, performance, overtim, 
+      create_date, create_by, update_date, 
+      update_by, status)
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{appraisalMonth,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{concreteFunction,jdbcType=VARCHAR}, 
+      #{manHour,jdbcType=VARCHAR}, #{performance,jdbcType=VARCHAR}, #{overtim,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, 
+      #{updateBy,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.seda.dailyReport.model.PerformanceAppraisal">
+    insert into tb_performance_appraisal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="appraisalMonth != null">
+        appraisal_month,
+      </if>
+      <if test="projectName != null">
+        project_name,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+      <if test="concreteFunction != null">
+        concrete_function,
+      </if>
+      <if test="manHour != null">
+        man_hour,
+      </if>
+      <if test="performance != null">
+        performance,
+      </if>
+      <if test="overtim != null">
+        overtim,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="appraisalMonth != null">
+        #{appraisalMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="concreteFunction != null">
+        #{concreteFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="manHour != null">
+        #{manHour,jdbcType=VARCHAR},
+      </if>
+      <if test="performance != null">
+        #{performance,jdbcType=VARCHAR},
+      </if>
+      <if test="overtim != null">
+        #{overtim,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.seda.dailyReport.model.PerformanceAppraisalExample" resultType="java.lang.Long">
+    select count(*) from tb_performance_appraisal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_performance_appraisal
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null">
+        userID = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appraisalMonth != null">
+        appraisal_month = #{record.appraisalMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectName != null">
+        project_name = #{record.projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskId != null">
+        task_id = #{record.taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.concreteFunction != null">
+        concrete_function = #{record.concreteFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.manHour != null">
+        man_hour = #{record.manHour,jdbcType=VARCHAR},
+      </if>
+      <if test="record.performance != null">
+        performance = #{record.performance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overtim != null">
+        overtim = #{record.overtim,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_performance_appraisal
+    set id = #{record.id,jdbcType=VARCHAR},
+      userID = #{record.userid,jdbcType=VARCHAR},
+      appraisal_month = #{record.appraisalMonth,jdbcType=VARCHAR},
+      project_name = #{record.projectName,jdbcType=VARCHAR},
+      task_id = #{record.taskId,jdbcType=VARCHAR},
+      concrete_function = #{record.concreteFunction,jdbcType=VARCHAR},
+      man_hour = #{record.manHour,jdbcType=VARCHAR},
+      performance = #{record.performance,jdbcType=VARCHAR},
+      overtim = #{record.overtim,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=VARCHAR},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=VARCHAR},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seda.dailyReport.model.PerformanceAppraisal">
+    update tb_performance_appraisal
+    <set>
+      <if test="userid != null">
+        userID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="appraisalMonth != null">
+        appraisal_month = #{appraisalMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null">
+        task_id = #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="concreteFunction != null">
+        concrete_function = #{concreteFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="manHour != null">
+        man_hour = #{manHour,jdbcType=VARCHAR},
+      </if>
+      <if test="performance != null">
+        performance = #{performance,jdbcType=VARCHAR},
+      </if>
+      <if test="overtim != null">
+        overtim = #{overtim,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seda.dailyReport.model.PerformanceAppraisal">
+    update tb_performance_appraisal
+    set userID = #{userid,jdbcType=VARCHAR},
+      appraisal_month = #{appraisalMonth,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      task_id = #{taskId,jdbcType=VARCHAR},
+      concrete_function = #{concreteFunction,jdbcType=VARCHAR},
+      man_hour = #{manHour,jdbcType=VARCHAR},
+      performance = #{performance,jdbcType=VARCHAR},
+      overtim = #{overtim,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

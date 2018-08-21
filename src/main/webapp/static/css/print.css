@@ -1,0 +1,156 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.print {
+  padding-top: 30px;
+  width: 800px;
+  margin: auto;
+}
+.printItem {
+  padding: 20px 30px;
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+table{
+  page-break-after: avoid;
+  page-break-inside: avoid;
+  width: 100%;
+}
+tr{
+  height: 36px;
+}
+.tbHeader{
+  height: 42px;
+  text-align: center;
+}
+.tbInfo{
+  height: 42px;
+}
+div.infoItem{
+  width: 50%;
+  float: left;
+}
+td {
+  padding:0 12px;
+}
+td.tbLabel{
+  text-align: center;
+}
+td.tbContent {
+  text-align: left;
+  padding-right: 12px;
+}
+.btns {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height:46px;
+  padding-bottom: 28px;
+  line-height: 46px;
+  background-color:rgba(0,0,0,0.2);
+  text-align: center;
+}
+.btns .btn{
+  display: inline-block;
+  width: 100px;
+  height: 32px;
+  border-radius: 4px;
+  background: #297d9f;
+  line-height: 32px;
+  margin: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+.printDesc{
+  height: 42px;
+  text-align: left;
+  padding-left: 16px;
+  line-height: 42px;
+  font-weight: bold;
+}
+.printHeader{
+  height: 42px;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  border-bottom:1px dashed;
+  line-height: 42px;
+}
+.printInfo {
+  height: 24px;
+  padding-top: 18px;
+}
+.printFoot{
+  height: 36px;
+  line-height: 36px;
+}
+@media print {
+  @page {
+    size: A4;
+  }
+  .print {
+    padding-top: 0;
+    width: 21cm;
+    margin: auto;
+  }
+  .printItem {
+    padding: 0.875cm 1.5cm;
+  }
+  table{
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    width: 100%;
+  }
+  tr{
+    height: 1.25cm;
+  }
+  .tbHeader{
+    height: 1.5cm;
+    text-align: center;
+  }
+  .tbInfo{
+    height: 1.5cm;
+  }
+  div.infoItem{
+    width: 50%;
+    float: left;
+  }
+  td {
+    padding:0 12px;
+  }
+  td.tbLabel{
+    text-align: center;
+  }
+  td.tbContent {
+    text-align: left;
+    padding-right: 12px;
+  }
+  .printDesc{
+    height: 1.5cm;
+    text-align: left;
+    padding-left: 0.625cm;
+    line-height: 1.5cm;
+    font-weight: bold;
+  }
+  .printHeader{
+    height: 1.48cm;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    border-bottom:0.02cm dashed;
+    line-height: 1.48cm;
+  }
+  .printInfo {
+    height: 0.9cm;
+    padding-top: 0.6cm;
+  }
+  .printFoot{
+    height: 1.2cm;
+    line-height: 1.2cm;
+  }
+}
+
+
