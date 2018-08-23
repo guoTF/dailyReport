@@ -30,6 +30,17 @@ public class LoginController {
 	@Resource
 	private LoginService loginService;
 	
+	/**
+	 * 登录页面
+	 * @return
+	 */
+	@RequestMapping(value="/toIndex")
+	public ModelAndView toIndex(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("index");
+		return view;
+	}
+	
 	 /**
      * 注册跳转
      * @return

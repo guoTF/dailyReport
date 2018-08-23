@@ -29,9 +29,10 @@ public class AuthFilter implements Filter{
 		String userID = (String) req.getSession().getAttribute("userID");
 		if (!requestURI.contains("/login/toIndex")) {
 			if (StringUtils.isBlank(userID)) {
-				resq.sendRedirect("/index.jsp");
+				resq.sendRedirect("/login/toIndex");
 			}
 		}
+		chain.doFilter(req, resq);
 	}
 
 	@Override
