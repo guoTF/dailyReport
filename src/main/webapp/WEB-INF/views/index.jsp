@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-  <%@include file="./commons/global.jsp" %>
+  <%@include file="../../commons/global.jsp" %>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<%@include file="./commons/basejs.jsp" %>
+	<%@include file="../../commons/basejs.jsp" %>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>

@@ -34,7 +34,7 @@ public class LoginController {
 	 * 登录页面
 	 * @return
 	 */
-	@RequestMapping(value="/toIndex")
+	@RequestMapping(value="/toLoginIndex")
 	public ModelAndView toIndex(){
 		ModelAndView view = new ModelAndView();
 		view.setViewName("index");
