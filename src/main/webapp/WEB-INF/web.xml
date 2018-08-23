@@ -25,14 +25,24 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-	<!-- <filter>
+	<filter>
 			<filter-name>authFilter</filter-name>
 			<filter-class>com.seda.web.filter.AuthFilter</filter-class>
+			<init-param>
+			<param-name>allowUrls</param-name>
+			<param-value>
+				/common;/getDepartment;/login.jsp;/login/login
+			</param-value>
+		</init-param>
 	</filter>
+	<filter-mapping>
+		<filter-name>authFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
 	<filter-mapping>
 		<filter-name>character encoding</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> -->
+	</filter-mapping>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

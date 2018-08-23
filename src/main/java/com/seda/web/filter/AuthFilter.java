@@ -13,11 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.seda.dailyReport.model.dto.OperationDto;
+import com.seda.dailyReport.util.AjaxUtils;
+
+import net.sf.json.JSONObject;
+
 public class AuthFilter implements Filter{
+
+	private String[] allowUrls;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		
+		allowUrls = filterConfig.getInitParameter("allowUrls").split(";");
 	}
 
 	@Override
@@ -25,14 +32,33 @@ public class AuthFilter implements Filter{
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resq = (HttpServletResponse) response;
-		String requestURI = req.getRequestURI();
+		String requestUri = req.getRequestURI();
 		String userID = (String) req.getSession().getAttribute("userID");
-		if (!requestURI.contains("/login/toIndex")) {
-			if (StringUtils.isBlank(userID)) {
-				resq.sendRedirect("/login/toIndex");
+		for (String allowUrl : allowUrls) {
+			if(requestUri.contains("/login/toIndex")){
+				if(StringUtils.isBlank(userID)){
+					resq.sendRedirect(req.getContextPath());
+					return;
+				}
+			}
+			if (requestUri.contains(allowUrl)) {
+				chain.doFilter(req, resq);
+				return;
 			}
 		}
+		if(StringUtils.isBlank(userID)) {
+			if (AjaxUtils.isAjaxRequest(req) || AjaxUtils.isAjaxUploadRequest(req)) {
+				resq.setHeader("sessionstatus", "timeout");
+				OperationDto od=new OperationDto();
+				JSONObject json = JSONObject.fromObject(od);
+				response.getWriter().print(json.toString());
+				return;
+			}
+			chain.doFilter(req, resq);
+			return;
+		}
 		chain.doFilter(req, resq);
+		return;
 	}
 
 	@Override
