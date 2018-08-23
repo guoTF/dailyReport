@@ -9,9 +9,7 @@
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT
  */
-
-.fileinput-button i,
-.fileupload-buttonbar .delete,
-.fileupload-buttonbar .toggle {
-  display: none;
+.fileinput-button i, .fileupload-buttonbar .delete,
+	.fileupload-buttonbar .toggle {
+	display: none;
 }

@@ -9,14 +9,14 @@
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT
  */
-
 .fileinput-button input {
-  position: static;
-  opacity: 1;
-  filter: none;
-  font-size: inherit !important;
-  direction: inherit;
+	position: static;
+	opacity: 1;
+	filter: none;
+	font-size: inherit !important;
+	direction: inherit;
 }
+
 .fileinput-button span {
-  display: none;
+	display: none;
 }

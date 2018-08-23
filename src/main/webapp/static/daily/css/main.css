@@ -1,10 +1,10 @@
-.toggleIndex{
-	    float: left;
-    text-align: center;
-    margin-left: 101px;
-    margin-top: 12px;
-    width: 32px;
-    padding: 10px 0px;
-    background-color: #2299ee;
-    cursor:pointer;
+.toggleIndex {
+	float: left;
+	text-align: center;
+	margin-left: 101px;
+	margin-top: 12px;
+	width: 32px;
+	padding: 10px 0px;
+	background-color: #2299ee;
+	cursor: pointer;
 }

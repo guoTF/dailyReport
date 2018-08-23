@@ -9,7 +9,8 @@
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- 加载数据库配置文件 -->
-	<context:property-placeholder location="classpath:conf/sysConf.properties" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:conf/sysConf.properties"
+		ignore-unresolvable="true" />
 
 	<bean id="dataSourceProxy"
 		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
@@ -24,7 +25,7 @@
 
 	<!-- 声明DataSource -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-		  init-method="init" destroy-method="close">
+		init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->
 		<property name="driverClassName" value="${connection.driverclassname}" />
 		<property name="url" value="${connection.url}" />
@@ -45,13 +46,13 @@
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
 		<!-- 打开removeAbandoned功能 -->
-		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandoned" value="true" />
 		<!-- 1800秒，也就是30分钟 -->
-		<property name="removeAbandonedTimeout" value="1800"/>
+		<property name="removeAbandonedTimeout" value="1800" />
 		<!-- 配置监控统计拦截的filters -->
-		<property name="filters" value="stat,log4j,config"/>
+		<property name="filters" value="stat,log4j,config" />
 		<property name="connectionProperties"
-				  value="config.decrypt=true;druid.log.conn=false;druid.log.stmt=false;druid.log.rs=false;druid.log.stmt.executableSql=true;"/>
+			value="config.decrypt=true;druid.log.conn=false;druid.log.stmt=false;druid.log.rs=false;druid.log.stmt.executableSql=true;" />
 	</bean>
 
 	<!-- 声明SqlSessionFactory -->
@@ -63,14 +64,14 @@
 			<array>
 				<bean class="com.github.pagehelper.PageInterceptor">
 					<property name="properties">
-                    <value>
-                        helperDialect=sqlserver2012
-                        reasonable=true
-                        supportMethodsArguments=true
-                        params=count=countSql
-                        autoRuntimeDialect=true
-                    </value>
-                </property>
+						<value>
+							helperDialect=sqlserver2012
+							reasonable=true
+							supportMethodsArguments=true
+							params=count=countSql
+							autoRuntimeDialect=true
+						</value>
+					</property>
 				</bean>
 			</array>
 		</property>
@@ -93,7 +94,7 @@
 			<tx:method name="change*" propagation="REQUIRED" />
 			<tx:method name="end*" propagation="REQUIRED" />
 			<tx:method name="cancel*" propagation="REQUIRED" />
-			<!-- <tx:method name="*" read-only="true" />  -->
+			<!-- <tx:method name="*" read-only="true" /> -->
 		</tx:attributes>
 	</tx:advice>
 
