@@ -98,6 +98,7 @@ public class DailyReportServiceImpl implements DailyReportService {
 				String reportTimestr = jsonObject.getString("reportTimestr");
 				String reportTypeId = jsonObject.getString("reportTypeId");
 				String reportGoal = jsonObject.getString("reportGoal");
+				
 				DailyReport report = new DailyReport();
 				if (StringUtils.isBlank(reportProjectName)) {
 					return dto.fail("0", "项目名称为空");
@@ -118,7 +119,7 @@ public class DailyReportServiceImpl implements DailyReportService {
 					return dto.fail("0", "工作目标为空");
 				}
 				report.setReportNum(jsonObject.getInt("reportNum"));
-				report.setReportDay(jsonObject.getString(reportDay));
+				report.setReportDay(reportDay);
 				report.setReportProjectName(reportProjectName);
 				report.setReportContent(reportContent);
 				report.setReportTime(reportTime);

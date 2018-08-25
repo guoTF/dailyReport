@@ -88,6 +88,7 @@ public class DailyPlanServiceImpl implements DailyPlanService {
 				dailyPlan.setPlanTime(planTime);
 				dailyPlan.setId(CreatePrimaryKeyUtils.createPrimaryKey());
 				dailyPlan.setUserId(userID);
+				dailyPlan.setPlanDay(planDay);
 				dailyPlan.setCreateDate(new Date());
 				int j = this.dailyPlanMapper.insert(dailyPlan);
 				if (j == 1) {

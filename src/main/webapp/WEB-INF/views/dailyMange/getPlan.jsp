@@ -18,6 +18,7 @@
 					<tr class="warning">
 						<th>操作</th>
 						<th>序号</th>
+						<th>项目名称</th>
 						<th>工作内容</th>
 						<th>计划目标</th>
 						<th>工作量(小时)</th>
@@ -28,7 +29,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="5"><a href="javascript:void(0);"
+						<td colspan="6"><a href="javascript:void(0);"
 							class="btn btn-primary" id="addBtn">添加</a> <a
 							href="javascript:void(0);" style="padding: 0px 15px;"></a> <a
 							href="javascript:void(0);" class="btn btn-success" id="saveBtn">保存</a>
