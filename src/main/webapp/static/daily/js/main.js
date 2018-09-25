@@ -31,6 +31,7 @@ layui.use(['layer','common','form','laydate'],function(){
 	
 	$(function(){
 		getHtml("/login/toMain","#page-wrapper");
+		//$(document).off('click');
 		//切换
 		var oldTime=0;
 		$("#toggleIndex").on('click',function(){
@@ -58,9 +59,9 @@ layui.use(['layer','common','form','laydate'],function(){
 		//左侧菜单绑定点击事件
 		$("#side-menu ul").on('click','li',function(e){
 			var e =e||window.event;
-			
 			var url =$(e.currentTarget).data('url');
 			getHtml(url,"#page-wrapper");
+		    e.stopPropagation();
 		});
 	})
 });
