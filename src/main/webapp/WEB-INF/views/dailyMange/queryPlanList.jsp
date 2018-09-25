@@ -2,18 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/commons/global.jsp"%>
 <div class="text-canter">个人日志查询</div>
-
+<div class="queryPlanList">
 <div class="row form-inline">
 	<div class="form-group ">
 		<label for="planStartday">开始日期：</label> <input type="text"
 			class="form-control" id="planStartday">
+			<span class="layui-hide" id="planStartdayCopy"></span>
 	</div>
 	<div class="form-group">
 		<label for="planEndday">结束日期：</label> <input type="text"
 			class="form-control" id="planEndday">
+			<span class="layui-hide" id="planEnddayCopy"></span>
 	</div>
 	<div class="form-group">
-		<button type="button" class="btn btn-info">搜索</button>
+		<button type="button" class="btn btn-info" id="planSearchperson">搜索</button>
 	</div>
 </div>
 <div class="row" style="padding: 20px 0;">
@@ -28,20 +30,19 @@
 	</label>
 </div>
 <div class="table-responsive">
-	<table class="table  table-bordered" id="plantable">
+	<table class="table  table-bordered" id="queryPlanList_plantable">
 		<thead>
-			<tr class="warning">
-				<th>工作日期</th>
-				<th>序号</th>
-				<th>部门</th>
-				<th>项目名称</th>
-				<th>重大里程碑</th>
-				<th>工作内容</th>
-				<th>工作类型</th>
-				<th>工作时间</th>
-				<th>工作结果</th>
-				<th>是否加班</th>
-				<th>备注</th>
+			<tr class="info">
+				<th width="7%">序号</th>
+				<th width="12%">工作日期</th>
+			<!-- 	<th width="7%">用户名</th> -->
+				<th width="15%">项目名称</th>
+				<th width="15%">工作内容</th>
+				<th width="13%">工作量（小时）</th>
+				<th width="18%">工作时间（正常/加班）</th>
+				<th >工作类型</th>
+				<th >工作结果</th>
+				<th width="">备注</th>
 			</tr>
 		</thead>
 		<tbody id="planList">
@@ -50,5 +51,6 @@
 
 	</table>
 </div>
-<script type="text/javascript"
-	src="${staticPath }/static/daily/js/getplan.js"></script>
+</div>
+<script type="text/javascript" src="${staticPath }/static/daily/js/vue.js"></script>
+<script type="text/javascript" src="${staticPath }/static/daily/js/getplan.js?ver=4"></script>

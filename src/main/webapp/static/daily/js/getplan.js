@@ -8,7 +8,7 @@ laydate.render({
 	  elem: '#test2'
 	  ,position: 'static'
 	  ,ready:function(data){
-		  console.log(data)
+		  console.log(data);
 		 $("#testView","#getplan").text(data.year+"-"+data.month+"-"+data.date)
 		  //lay('#testView').html(value.toString());
 	  }
@@ -18,7 +18,6 @@ laydate.render({
 	});
 //列表查询计划
     $.post(host+'/dailyPlan/getPlan',{day:GetDateStr(0)},function(data){
-    	console.log(data)
     });
    
     //工作计划添加
@@ -82,9 +81,15 @@ laydate.render({
     //个人日志查询
     laydate.render({
    	 elem: '#planStartday'
+   	 ,done:function(value, date, endDate){
+   		$('#planStartdayCopy').text(value) 
+   	 }
    });
     laydate.render({
       	 elem: '#planEndday'
+  		,done:function(value, date, endDate){
+  	   		$('#planEnddayCopy').text(value) 
+  	   	 }
       });
   /* 工作日志填写*/
     $("#writeReportList").on('click',function(){
@@ -158,10 +163,43 @@ laydate.render({
     	})
     	}
     })
+     //个人日志查询
+	$("#planSearchperson",'.queryPlanList').on("click",function(){
+		var beginDate =$("#planStartdayCopy",'.queryPlanList').text();
+		var endDay =$("#planEnddayCopy",'.queryPlanList').text();
+		if(beginDate==""||endDay==''){
+			layer.msg('请选择日期',{icon:5});
+			return false;
+		}
+		var planVo ={
+				pageNo:1,
+			  pageSize:10,
+			  beginDate:beginDate,
+			  endDate:endDay,
+			  userName:"fpw"
+		}
+		common.sendRequest('/dailyQuery/queryPlanList',{planVo:JSON.stringify(planVo)},function(data){
+			console.log(data);
+			var data =data.list;
+			if(data.length!=0){
+				$.each(data,function(index,obj){
+					 $("#queryPlanList_plantable #planList",'.queryPlanList').append(combineOne(obj,index)) //格式化表单
+				})
+			}
+    	})
+	})
+	
 })    
-
-
-
+   
+//拼接表单
+function combineOne(obj,index){
+	var htmltable = '<tr><td>'+(index+1)+'</td><td>'+obj.planDay+'</td>'+
+			'<td>'+obj.planProjectName+'</td>'+
+			'<td>'+obj.planContent+'</td><td>'+obj.planNum+'</td>'+
+			'<td>'+obj.planTime+'</td><td>'+obj.createDate+'</td>'+
+			'<td>'+obj.planGoal+'</td><td>'+obj.remark+'</td><tr>';
+	return htmltable;
+}
 
 //拿到当前日期
 function GetDateStr(AddDayCount) {

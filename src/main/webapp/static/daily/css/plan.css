@@ -5,3 +5,13 @@
 .tablePlan tfoot td {
 	text-align: center;
 }
+html,body{
+	font-size:12px;
+}
+th,td{
+	margin:0;
+	padding:0;
+}
+.table>thead>tr>th{
+	padding:6px;
+}
