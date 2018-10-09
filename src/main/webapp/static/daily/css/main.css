@@ -8,3 +8,15 @@
 	background-color: #2299ee;
 	cursor: pointer;
 }
+th,td{
+	font-size:normal;
+	font-weight:normal;
+}
+.query-title{
+	margin-top:4px;
+}
+.List .show-item-date{
+	    text-align: center;
+    padding: 6px;
+    font-size: 16px;
+}

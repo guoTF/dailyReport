@@ -9,6 +9,7 @@
 th,td{
 	margin:0;
 	padding:0;
+	font-weight:normal;
 }
 .table>thead>tr>th{
 	padding:6px;
