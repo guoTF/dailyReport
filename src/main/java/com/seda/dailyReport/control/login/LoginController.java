@@ -48,7 +48,7 @@ public class LoginController {
     @RequestMapping(value="/toRegister")
     public ModelAndView toBackLoginPage(){
     	ModelAndView mav=new ModelAndView();
-    	mav.setViewName("register.jsp");
+    	mav.setViewName("register");
     	return mav;
     }
 
